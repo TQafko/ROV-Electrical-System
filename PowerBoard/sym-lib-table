@@ -1,0 +1,6 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "XT60-M")(type "KiCad")(uri "${KIPRJMOD}/Symbols/XT60-M.kicad_sym")(options "")(descr ""))
+  (lib (name "MAX6682MUA_T")(type "KiCad")(uri "${KIPRJMOD}/Symbols/MAX6682MUA_T.kicad_sym")(options "")(descr ""))
+  (lib (name "RPM5.0-6.0-CT")(type "KiCad")(uri "${KIPRJMOD}/Symbols/RPM5.0-6.0-CT.kicad_sym")(options "")(descr ""))
+)
