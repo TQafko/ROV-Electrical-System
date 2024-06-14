@@ -1,0 +1,103 @@
+
+(rules PCB USB_Splitter
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 1533)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.8)
+      (against_preferred_direction_trace_costs 3.0)
+    )
+    (layer_rule In1.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.8)
+    )
+    (layer_rule In2.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.2)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.8)
+      (against_preferred_direction_trace_costs 2.6)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-3]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle In2.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-3]_800:400_um" "Via[0-3]_800:400_um" default
+  )
+  (via 
+    "Via[0-3]_800:400_um-kicad_default" "Via[0-3]_800:400_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-3]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-3]_800:400_um-kicad_default"
+  )
+  (class default
+    VCC GND "Net-(D1-Pad1)" PWM16 PWM17 SDA SCL PWM0
+    PWM1 PWM2 PWM3 PWM4 PWM5 PWM6 PWM7 PWM8
+    PWM9 PWM10 PWM11 PWM12 PWM13 PWM14 PWM15 PWM18
+    PWM19 PWM20 PWM21 PWM22 PWM23 PWM24 PWM25 PWM26
+    PWM27 PWM28 PWM29 PWM30 PWM31 PWM32 PWM33 PWM34
+    PWM35 PWM36 PWM37 PWM38 PWM39 PWM40 PWM41 PWM42
+    PWM43 PWM44 PWM45 PWM46 PWM47 "A1_0" "A1_1" "A1_2"
+    "A1_3" "A1_4" "A1_5" "Net-(U2-Pad26)" "Net-(U2-Pad27)" "A0_0" "A0_1" "A0_2"
+    "A0_3" "A0_4" "A0_5" "A2_0" "A2_1" "A2_2" "A2_3" "A2_4"
+    "A2_5" "Net-(U3-Pad26)" "Net-(U3-Pad27)" "Net-(D2-Pad1)" "Net-(D3-Pad1)"
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+)
